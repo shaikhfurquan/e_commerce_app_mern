@@ -1,0 +1,21 @@
+
+USER
+
+REGISTER USER
+POST   ===> http://localhost:6969/api/user/register
+{
+  "name" : "sf",
+  "email" : "sf@gmail.com",
+  "password" : "123",
+  "address" : "pune",
+  "phone" : "7769"
+}
+
+
+
+LOGIN USER
+POST  ==> http://localhost:6969/api/user/login
+{
+  "email" : "sf@gmail.com",
+  "password" : "123"
+}
