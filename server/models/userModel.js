@@ -27,8 +27,9 @@ const userSchema = new mongoose.Schema({
         required : [true , "Please provide address"],
     },
     role :{
-        type : Boolean,
-        default : false
+        type : String,
+        enum : ['user' , 'admin'],
+        default : 'user'
     }
 } , {timestamps : true})
 
