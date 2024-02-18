@@ -21,7 +21,7 @@ export const registerUser = async (req, res) => {
             })
         }
 
-        //registration of user
+        //registration of user(hashing the password from the req.body)
         const hashedPassword = await hashPassword(password)
         const newUser = await UserModel.create({ name, email, phone, address, password: hashedPassword })
 
@@ -58,7 +58,7 @@ export const loginUser = async (req, res) => {
             })
         }
 
-        //if user is there then we will compare the password
+        //if user is there then we will compare the password(userPassword & insideDB user.password)
         const isMath = await comparePassword(password , user.password)
         if(!isMath){
             return res.status(400).json({
