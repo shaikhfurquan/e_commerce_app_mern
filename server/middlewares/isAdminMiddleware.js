@@ -4,7 +4,6 @@ import UserModel from "../models/userModel.js";
 //Admin access
 export const isAdmin = async (req, res, next) => {
     try {
-
         let id = req.user._id;
         const user = await UserModel.findById({_id : id});
         

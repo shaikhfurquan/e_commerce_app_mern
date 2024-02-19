@@ -14,17 +14,16 @@ export const isAuthenticated = async (req, res, next) => {
             });
         }
         const decodedUser = JWT.verify(token, process.env.JWT_SECRET)
-         req.user = decodedUser
 
+        req.user = decodedUser
         next()
 
     } catch (error) {
-
-            return res.status(500).json({
-                success: false,
-                message: "Authentication error",
-                error: error.message
-            });
+        return res.status(500).json({
+            success: false,
+            message: "Authentication error, Not a valid token",
+            error: error.message
+        });
     }
 }
 
