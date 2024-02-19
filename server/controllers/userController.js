@@ -1,11 +1,10 @@
 import { generateToken } from "../helpers/generateToken.js";
-import { comparePassword, hashPassword } from "../helpers/userHelper.js"
+import { comparePassword, hashPassword } from "../helpers/userPasswordHelper.js"
 import UserModel from "../models/userModel.js"
 
 export const registerUser = async (req, res) => {
     try {
         const { name, email, password, phone, address } = req.body
-        console.log(req.body);
         if (!name || !email || !password || !phone || !address) {
             return res.status(404).json({
                 success: false,
@@ -42,6 +41,8 @@ export const registerUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
     try {
+
+
         const { email, password } = req.body
         if (!email || !password) {
             res.status(401).json({
