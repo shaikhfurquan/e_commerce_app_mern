@@ -6,6 +6,7 @@ POST   ===> http://localhost:6969/api/user/register
 {
   "name" : "sf",
   "email" : "sf@gmail.com",
+  "answer" : "sf",
   "password" : "123",
   "address" : "pune",
   "phone" : "7769"
@@ -18,4 +19,21 @@ POST  ==> http://localhost:6969/api/user/login
 {
   "email" : "sf@gmail.com",
   "password" : "123"
+}
+
+
+FORGOT PASSWORD
+POST  ==> http://localhost:6969/api/user/forgot-password
+{
+  "email" : "sf@gmail.com",
+  "answer" : "sf",
+  "newPassword" : "123"
+}
+
+
+UPDATE PASSWORD
+POST ==> http://localhost:6969/api/user/update-password/65d4f8524f2d11dc39bcf7b0
+{
+  "oldPassword" : "123456",
+  "newPassword" : "123"
 }
