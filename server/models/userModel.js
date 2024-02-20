@@ -26,6 +26,10 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : [true , "Please provide address"],
     },
+    question :{
+        type : String,
+        required : [true , "Please provide answer"],
+    },
     role :{
         type : String,
         enum : ['user' , 'admin'],
