@@ -84,3 +84,16 @@ export const loginUser = async (req, res) => {
         })
     }
 }
+
+
+export const forgotPassword = async (req, res) => {
+    try {
+        const {email, question, newPassword} = req.body 
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Something went wrong",
+            error: error.message
+        })
+    }
+}
