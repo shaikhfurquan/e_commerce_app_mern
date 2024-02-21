@@ -47,10 +47,10 @@ export const loginUser = async (req, res) => {
         if (!email || !password) {
             res.status(401).json({
                 success: false,
-                message: "Please provid all fields"
+                message: "Please provide all fields"
             })
         }
-        //check wheather the user exists or not
+        //check whether the user exists or not
         const user = await UserModel.findOne({ email })
         if (!user) {
             return res.status(400).json({
