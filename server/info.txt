@@ -9,7 +9,8 @@ POST   ===> http://localhost:6969/api/user/register
   "answer" : "sf",
   "password" : "123",
   "address" : "pune",
-  "phone" : "7769"
+  "phone" : "7769",
+  "userType" : "user"
 }
 
 
@@ -37,3 +38,30 @@ POST ==> http://localhost:6969/api/user/update-password/65d4f8524f2d11dc39bcf7b0
   "oldPassword" : "123456",
   "newPassword" : "123"
 }
+
+
+==========================================================================================================
+
+
+
+CATEGORY
+CREATE CATEGORY  ==> POST ==> http://localhost:6969/api/category/create-category
+{
+  "name" : "Laptops"
+}
+
+
+GET ALL CATEGORY    ==>   GET ==> http://localhost:6969/api/category/get-all
+
+
+
+GET SINGLE CATEGORY ==>   GET ==> http://localhost:6969/api/category/get/65d5abc91c8a2de97c501650
+
+
+UPDAT CATEGORY  ==> PUT  ==> http://localhost:6969/api/category/update-category/65d5abc91c8a2de97c501650
+{
+  "name" : "Laptops and mobiles"
+}
+
+
+DELETE CATEGORY  ==> DELETE  ==> 

@@ -37,17 +37,61 @@ export const createCategory = async (req, res) => {
 }
 
 
-export const getCategory = async (req, res) => {
+export const getAllCategory = async (req, res) => {
     try {
+        const getAll = await CategoryModel.find()
+        if (!getAll) {
+            return res.status(404).json({
+                success: true,
+                message: "Category not found"
+
+            })
+        }
         res.status(200).json({
             success: true,
             message: "Category lists",
+            categoryCount: getAll.length,
+            AllCategory: getAll,
 
         })
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error while category",
+            message: "Error while getting category",
+            error: error.messsage
+        })
+    }
+}
+
+
+export const getSingleCategory = async (req, res) => {
+    try {
+        const id = req.params.id
+        if (!id) {
+            return res.status(404).json({
+                success: false,
+                message: "Please provide a category Id"
+            })
+        }
+        const singleCategory = await CategoryModel.findById(id)
+        if (!singleCategory) {
+            return res.status(404).json({
+                success: true,
+                message: "Category not found"
+
+            })
+        }
+        console.log(singleCategory);
+        res.status(200).json({
+            success: true,
+            message: "Category list",
+            singleCategory: singleCategory
+
+        })
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: "Error getting category",
             error: error.messsage
         })
     }
@@ -56,15 +100,21 @@ export const getCategory = async (req, res) => {
 
 export const updateCategory = async (req, res) => {
     try {
+        const { name } = req.body
+        const { id } = req.params
+        const updateCategory = await CategoryModel.findByIdAndUpdate(id, { name, slug: slugify(name) }, { new: true })
+
+
         res.status(200).json({
             success: true,
             message: "Category updated successfully",
-   
+            updateCategory: updateCategory
+
         })
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error while category",
+            message: "Error while updating category",
             error: error.messsage
         })
     }
@@ -76,7 +126,7 @@ export const deleteCategory = async (req, res) => {
         res.status(500).json({
             success: true,
             message: "Category deleted successfully",
-            
+
         })
     } catch (error) {
         res.status(500).json({
