@@ -5,6 +5,7 @@ import connectDB from './db/connectDB.js';
 import userRouter from './routes/userRoute.js';
 import cors from 'cors'
 import categoryRouter from './routes/categoryRoute.js';
+import productRouter from './routes/productRoute.js';
 
 
 dotenv.config()
@@ -20,6 +21,7 @@ app.use(cors())
 //routes
 app.use('/api/user' , userRouter)
 app.use('/api/category' , categoryRouter)
+app.use('/api/product' , productRouter)
 
 //db connection
 connectDB() 
