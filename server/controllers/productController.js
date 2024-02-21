@@ -13,7 +13,6 @@ export const createProduct = async (req, res) =>{
     }
 }
 
- 
 
 export const getProduct = async (req, res) =>{
     try {
