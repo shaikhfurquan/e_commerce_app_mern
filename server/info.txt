@@ -55,7 +55,8 @@ GET ALL CATEGORY    ==>   GET ==> http://localhost:6969/api/category/get-all
 
 
 
-GET SINGLE CATEGORY ==>   GET ==> http://localhost:6969/api/category/get/65d5abc91c8a2de97c501650
+GET SINGLE CATEGORY ==>   GET ==> http://localhost:6969/api/category/single-category/65d5abc91c8a2de97c501650
+                          GET ==> http://localhost:6969/api/category/single-category/mobiles
 
 
 UPDAT CATEGORY  ==> PUT  ==> http://localhost:6969/api/category/update-category/65d5abc91c8a2de97c501650

@@ -31,7 +31,7 @@ export const createCategory = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error while category",
-            error: error.messsage
+            error: error.message
         })
     }
 }
@@ -57,8 +57,8 @@ export const getAllCategory = async (req, res) => {
     } catch (error) {
         res.status(500).json({
             success: false,
-            message: "Error while getting category",
-            error: error.messsage
+            message: "Error while getting all categories",
+            error: error.message
         })
     }
 }
@@ -66,14 +66,8 @@ export const getAllCategory = async (req, res) => {
 
 export const getSingleCategory = async (req, res) => {
     try {
-        const id = req.params.id
-        if (!id) {
-            return res.status(404).json({
-                success: false,
-                message: "Please provide a category Id"
-            })
-        }
-        const singleCategory = await CategoryModel.findById(id)
+        
+        const singleCategory = await CategoryModel.find({slug: req.params.slug})
         if (!singleCategory) {
             return res.status(404).json({
                 success: true,
@@ -81,7 +75,6 @@ export const getSingleCategory = async (req, res) => {
 
             })
         }
-        console.log(singleCategory);
         res.status(200).json({
             success: true,
             message: "Category list",
@@ -89,10 +82,10 @@ export const getSingleCategory = async (req, res) => {
 
         })
     } catch (error) {
-        res.status(500).json({
+         res.status(500).json({
             success: false,
-            message: "Error getting category",
-            error: error.messsage
+            message: "Error getting single category",
+            error: error.message
         })
     }
 }
@@ -115,7 +108,7 @@ export const updateCategory = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error while updating category",
-            error: error.messsage
+            error: error.message
         })
     }
 }
@@ -132,7 +125,7 @@ export const deleteCategory = async (req, res) => {
         res.status(500).json({
             success: false,
             message: "Error while category",
-            error: error.messsage
+            error: error.message
         })
     }
 }

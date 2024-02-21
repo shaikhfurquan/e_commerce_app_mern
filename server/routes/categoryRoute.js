@@ -8,9 +8,10 @@ const categoryRouter = express.Router();
 
 categoryRouter.post('/create-category' , isAuthenticated , isAdmin , createCategory)
 
-categoryRouter.get('/get-all' , isAuthenticated , isAdmin , getAllCategory)
+categoryRouter.get('/get-all' , getAllCategory)
 
-categoryRouter.get('/get/:id' , isAuthenticated , isAdmin , getSingleCategory)
+// categoryRouter.get('/get/:id' , getSingleCategory)
+categoryRouter.get('/single-category/:slug' , getSingleCategory)
 
 categoryRouter.put('/update-category/:id' , isAuthenticated , isAdmin , updateCategory)
 
