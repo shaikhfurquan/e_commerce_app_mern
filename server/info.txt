@@ -65,4 +65,4 @@ UPDAT CATEGORY  ==> PUT  ==> http://localhost:6969/api/category/update-category/
 }
 
 
-DELETE CATEGORY  ==> DELETE  ==> 
+DELETE CATEGORY  ==> DELETE  ==> http://localhost:6969/api/category/delete-category/65d5bd6b0dea8b2596730fd6
